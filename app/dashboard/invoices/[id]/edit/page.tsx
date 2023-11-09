@@ -7,7 +7,6 @@ export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id;
     const [invoice, customers] = await Promise.all([fetchInvoiceById(id), fetchCustomers()]);
 
-    // Added by tan because TS was whining that the Form expect invoice props
     if (!invoice) notFound();
 
     return (
