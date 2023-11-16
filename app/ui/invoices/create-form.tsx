@@ -41,15 +41,15 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                     </div>
                     {/* Beware, if all the aria-live validation error messages in this form appear at the same time (if we hit "create invoice" when all the fields were left blank), 
                     they won't necessarily be read in the right order by a screen reader, this way of doing is NOT production ready. */}
-                    <span aria-live='polite'>
+                    <div aria-live='polite' aria-atomic='true' id='customer-error'>
                         {state.errors?.customerId ? (
-                            <div id='customer-error' className='mt-2 text-sm text-red-500'>
+                            <div className='mt-2 text-sm text-red-500'>
                                 {state.errors.customerId.map((error: string) => (
                                     <p key={error}>{error}</p>
                                 ))}
                             </div>
                         ) : null}
-                    </span>
+                    </div>
                 </div>
 
                 {/* Invoice Amount */}
@@ -71,15 +71,15 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                             <CurrencyDollarIcon className='pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900' />
                         </div>
                     </div>
-                    <span aria-live='polite'>
+                    <div aria-live='polite' aria-atomic='true' id='amount-error'>
                         {state.errors?.amount ? (
-                            <div id='amount-error' className='mt-2 text-sm text-red-500'>
+                            <div className='mt-2 text-sm text-red-500'>
                                 {state.errors.amount.map((error: string) => (
                                     <p key={error}>{error}</p>
                                 ))}
                             </div>
                         ) : null}
-                    </span>
+                    </div>
                 </div>
 
                 {/* Invoice Status */}
@@ -119,15 +119,15 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                             </div>
                         </div>
                     </div>
-                    <span aria-live='polite'>
+                    <div aria-live='polite' aria-atomic='true' id='status-error'>
                         {state.errors?.status ? (
-                            <div id='status-error' className='mt-2 text-sm text-red-500'>
+                            <div className='mt-2 text-sm text-red-500'>
                                 {state.errors.status.map((error: string) => (
                                     <p key={error}>{error}</p>
                                 ))}
                             </div>
                         ) : null}
-                    </span>
+                    </div>
                 </fieldset>
                 <span aria-live='polite'>
                     {state.message ? (
