@@ -8,6 +8,16 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         console.error(error);
     }, [error]);
 
+    // If not not-found file.js is present, and you want to display a different page for 404/not found errors, you can handle it here instead
+
+    if (error.digest === 'NEXT_NOT_FOUND') {
+        return (
+            <main className='flex h-screen flex-col items-center justify-center'>
+                <h2 className='text-center'>Not found</h2>
+            </main>
+        );
+    }
+
     return (
         <main className='flex h-screen flex-col items-center justify-center'>
             <h2 className='text-center'>Something went wrong!</h2>

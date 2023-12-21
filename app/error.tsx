@@ -10,15 +10,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         console.log(error.digest);
     }, [error]);
 
-    // If not not-found file.js is present, and you want to display a different page for 404/not found errors, you can handle it here instead
-
-    if (error.digest === 'NEXT_NOT_FOUND') {
-        return (
-            <main className='flex h-screen flex-col items-center justify-center'>
-                <h2 className='text-center'>Not found</h2>
-            </main>
-        );
-    }
+    // Cannot handle  404/not found errors here, because we are the root /app folder ? So a specific /app/not-found.tsx file is needed to handle 404/not-found errors
 
     return (
         <main className='flex h-screen flex-col items-center justify-center'>
