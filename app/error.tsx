@@ -10,7 +10,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         console.log(error.digest);
     }, [error]);
 
-    // If not not-found file.js is present, you can handle it here instead
+    // If not not-found file.js is present, and you want to display a different page for 404/not found errors, you can handle it here instead
 
     if (error.digest === 'NEXT_NOT_FOUND') {
         return (
